@@ -6,9 +6,15 @@
 
 $(document).ready(function () {
 
-
+  // $('form textarea')
   const createTweetElement = SingleTweet => {
-    //  console.log(SingleTweet)
+    const escape =  function(str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+     console.log(SingleTweet)
+    // const safeHTML = `<p>${escape(SingleTweet.content.text)}</p>`;
     const $tweet =
       $(`<article class="tweet">
     <header>
@@ -17,7 +23,7 @@ $(document).ready(function () {
          ${SingleTweet.user.name}
       </span>
     </header>
-    <p>${SingleTweet.content.text}</p>
+    <p>${escape(SingleTweet.content.text)}</p>
     <footer>
     <span><strong>${SingleTweet.created_at}</strong></span>
     <div>
@@ -35,34 +41,34 @@ $(document).ready(function () {
   //  $("#tweet-container").append($newTweet);
 
   const renderTweets = (All) => {
-     console.log(All)
+    //  console.log(All)
     for (let tweet of All) {
       //  console.log(`tweet ${tweet}`);
       const $newTweet = createTweetElement(tweet);
-      console.log(`newtweet:${$newTweet}`)
-      $("#tweets-container").append($newTweet);
+      // console.log(`newtweet:${$newTweet}`)
+      $("#tweets-container").prepend($newTweet);
     }
   }
   // renderTweets(data);
-  const checkValidation = (tweet)=>{
-    
-    }
-  
+ 
 $('form').on("submit",event=>{
 event.preventDefault();
 const tweet = $('form textarea').val();
 if(tweet === "" || tweet === null){
   return alert("Your tweet is empty");
-}else if(tweet.length > 140){
+} 
+if(tweet.length > 140){
    return alert("Your tweet exceeds the maximum characters!");
-}else{
+}
 $
  .ajax({
    url:"/tweets",
    method:"POST",
    data:$('form').serialize()
- }).then(data => console.log(data));
-}
+ }).then(()=>{
+  $("#tweets-container").empty();
+loadTweets();
+ });
 });
 
 const loadTweets = () =>{
@@ -72,6 +78,11 @@ const loadTweets = () =>{
     //  console.log(res);
       renderTweets(res)});
 }
-loadTweets();
+
+// const addLatestTweet = (tweets)=>{
+//   const latestTweet = Object.values(tweets).pop();
+//   createTweetElement(latestTweet);
+// }
+
 });
 
