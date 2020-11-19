@@ -9,6 +9,7 @@
 }
 .tweet:hover{
 box-shadow:5px 6px #6495ED ;
+
 }
 .tweet header{
   display: flex;
