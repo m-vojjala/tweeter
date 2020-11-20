@@ -1,10 +1,5 @@
 $(document).ready(function () {
-  // console.log("document ready")
-  console.log(document);
-  // $("form textarea").on("blur",()=>{
-  //   alert("HELLO");
 
-  // });
   $("#tweet-text").on("input", function (event) {
     event.preventDefault();
     const lengthOfText = 140 - $(event.target).val().length;
