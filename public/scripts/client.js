@@ -46,6 +46,7 @@ $(document).ready(function () {
       const $newTweet = createTweetElement(tweet);
       $("#tweets-container").prepend($newTweet);
     }
+    $("#tweet-text").val('');
   }
 
   // function to make "write a tweet" button work when clicked
