@@ -4,9 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
 $(document).ready(function () {
   $("#error-message").hide();
-
+ 
   // Creating structure of tweets dynamically
   const createTweetElement = SingleTweet => {
     const escape = function (str) {
@@ -63,13 +64,13 @@ $(document).ready(function () {
       $("#error-message").slideDown("slow");
       setTimeout(function () {
         $("#error-message").slideUp("slow");
-      }, 3000)
+      }, 3000);
     } else if (tweet.length > 140) {
       $("#error-message").text("Tweet must not exceed 140 characters!!")
       $("#error-message").slideDown("slow");
       setTimeout(function () {
         $("#error-message").slideUp("slow");
-      }, 3000)
+      }, 3000);
     } else {
       $
         .ajax({
@@ -94,6 +95,7 @@ $(document).ready(function () {
       });
   }
   loadTweets();
+ 
 });
 
 
