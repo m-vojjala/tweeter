@@ -8,7 +8,7 @@
   margin-bottom: 2em;
 }
 .tweet:hover{
-box-shadow:5px 6px #6495ED ;
+  box-shadow:5px 6px #6495ED ;
 }
 
 #tweets-container{
@@ -24,10 +24,10 @@ box-shadow:5px 6px #6495ED ;
 .handle{
   display: none;
 }
- .tweet:hover .handle{
-   display: block;
-   color: #ADD8E6;
-   margin-left: 350px;
+.tweet:hover .handle{
+  display: block;
+  color: #ADD8E6;
+  margin-left: 450px;
 } 
 .tweet footer{
   display: flex;
