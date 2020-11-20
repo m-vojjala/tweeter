@@ -9,14 +9,26 @@
 }
 .tweet:hover{
 box-shadow:5px 6px #6495ED ;
-
 }
+
+#tweets-container{
+  margin-top: 150px;
+}
+
 .tweet header{
   display: flex;
   align-items:center;
   font-family: 'Source Sans Pro', sans-serif;
   color: #696969;
 }
+.handle{
+  display: none;
+}
+ .tweet:hover .handle{
+   display: block;
+   color: #ADD8E6;
+   margin-left: 350px;
+} 
 .tweet footer{
   display: flex;
   justify-content: space-between;
@@ -35,8 +47,9 @@ box-shadow:5px 6px #6495ED ;
   font-family: 'Source Sans Pro', sans-serif;
   color:#696969;
 }
-.fas{
+.blue{
   color: #4056A1;
   font-size: small;
  padding:0.5em
 }
+

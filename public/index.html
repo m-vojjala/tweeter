@@ -4,12 +4,13 @@
 <head>
   <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     type="text/css" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,300;1,700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,400;1,700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
@@ -21,6 +22,7 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/tweet-list.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/responsive.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -33,12 +35,12 @@
   <!-- Top nav bar (fixed) -->
   <nav>
     <span>tweeter</span>
-
-    <div class="newTweet">
-      <span><strong>Write</strong> a new tweet</span>
-      <i class="fas fa-angle-double-down" style="color: red;"></i>
+    <div class="navbar">
+      <button class="tweet-button"><strong>Write</strong> a new tweet</button>
+      <i class="fas fa-angle-double-down"></i>
     </div>
   </nav>
+ 
   <header class="top-header">
     <div class="image">
       <img src="/images/profile-hex.png">
@@ -51,12 +53,13 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
-    <section>
+    <section class="compose-tweet">
       <h2>Compose Tweet</h2>
       <form action="/tweets" method="POST">
+        <div id="error-message">Error message</div>
         <div class="Text">
           <label for="tweet-text"><strong>What are you humming about?</strong></label>
-          <textarea name="text" id="tweet-text" value="value"></textarea>
+          <textarea name="text"id= "tweet-text" value="value"></textarea>
         </div>
         <div class="Button">
           <button type="submit">Tweet</button>
@@ -66,43 +69,6 @@
     </section>
     
     <section id="tweets-container">
-      <!-- <article class="tweet">
-        <header>
-          <img class="tweet-image" src="/images/profile-hex.png">
-          <span><strong></strong></span>
-        </header>
-        <p class="tweet-paragraph">
-          <strong>If I have seen further it is by standing on the shoulder of gaints</strong>
-        </p>
-        <footer>
-          <span><strong>10 days ago</strong></span>
-          <div>
-            <i class="fas fa-flag"></i>
-            <i class="fas fa-sync"></i>
-            <i class="fas fa-heart"></i>
-          </div>
-          </div>
-        </footer>
-      </article>
-    
-      <article class="tweet">
-        <header>
-          <img class="tweet-image" src="/images/profile-hex.png">
-          <span><strong>Amy</strong></span>
-        </header>
-        <p>
-          <strong>If I have seen further it is by standing on the shoulder of gaints</strong>
-        </p>
-        <footer>
-          <span><strong>10 days ago</strong></span>
-          <div>
-            <i class="fas fa-flag"></i>
-            <i class="fas fa-sync"></i>
-            <i class="fas fa-heart"></i>
-          </div>
-          </div>
-        </footer>
-      </article> -->
     </section>
   </main>
   <script src="./scripts/composer-char-counter.js"></script>

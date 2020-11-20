@@ -26,9 +26,24 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- main {
-   color: black;
-   width: 100%;
-   text-align: center;
+main.container{
+  color: black;
+  width: 100%;
+  text-align: center;
   background-color:#f4f1ec ;
- }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
+@media only screen and (min-width:1024px) {
+   body {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+  }
+}
+ 
+
+
+  

@@ -11,7 +11,7 @@ nav{
   top: 0; 
   width: 100%;
 }
-nav .newTweet{
+nav .navbar{
   font-family: 'Source Sans Pro', sans-serif;
   font-size: medium;
   display: flex;
@@ -19,4 +19,24 @@ nav .newTweet{
   justify-content: center;
   align-items:center;
   width: 200px;
+}
+ .fa-angle-double-down{
+  color: red;
+  z-index: 9999;
+}
+.fa-angle-double-down:hover{
+ color:#7CFC00;
+} 
+.navbar button{
+  padding: 0;
+border: none;
+background: none;
+}
+
+@media only screen and (max-width:1024px){
+  nav{
+    background-color: black;
+    background-image:url("https://www.transparenttextures.com/patterns/asfalt-light.png"); 
+   
+  }
 }

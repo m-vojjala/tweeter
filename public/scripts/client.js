@@ -5,6 +5,7 @@
  */
 
 $(document).ready(function () {
+  $("#error-message").hide();
 
   // $('form textarea')
   const createTweetElement = SingleTweet => {
@@ -22,14 +23,15 @@ $(document).ready(function () {
       <span>
          ${SingleTweet.user.name}
       </span>
+      <div class="handle">${SingleTweet.user.handle}</div>
     </header>
     <p>${escape(SingleTweet.content.text)}</p>
     <footer>
     <span><strong>${SingleTweet.created_at}</strong></span>
     <div>
-      <i class="fas fa-flag"></i>
-      <i class="fas fa-sync"></i>
-      <i class="fas fa-heart"></i>
+      <i class="fas blue fa-flag"></i>
+      <i class="fas blue fa-sync"></i>
+      <i class="fas blue fa-heart"></i>
     </div>
     </div>
   </footer>
@@ -37,29 +39,40 @@ $(document).ready(function () {
 
     return $tweet;
   }
-  //  const $newTweet = createTweetElement(tweetData);
-  //  $("#tweet-container").append($newTweet);
+ 
 
-  const renderTweets = (All) => {
+  const renderTweets = (allTweets) => {
     //  console.log(All)
-    for (let tweet of All) {
+    for (let tweet of allTweets) {
       //  console.log(`tweet ${tweet}`);
       const $newTweet = createTweetElement(tweet);
       // console.log(`newtweet:${$newTweet}`)
       $("#tweets-container").prepend($newTweet);
     }
   }
-  // renderTweets(data);
- 
+  
+
+ $('.tweet-button').on('click',event=>{
+   $(".compose-tweet").toggle("slow");
+ });
+
+
 $('form').on("submit",event=>{
 event.preventDefault();
-const tweet = $('form textarea').val();
+const tweet = $('#tweet-text').val();
 if(tweet === "" || tweet === null){
-  return alert("Your tweet is empty");
-} 
-if(tweet.length > 140){
-   return alert("Your tweet exceeds the maximum characters!");
-}
+  $("#error-message").text("Invalid Tweet!!")
+ $("#error-message").slideDown("slow")
+ setTimeout(function(){
+  $("#error-message").slideUp("slow");
+}, 3000)
+}else if(tweet.length > 140){
+  $("#error-message").text("Tweet must not exceed 140 characters!!")
+  $("#error-message").slideDown("slow")
+  setTimeout(function(){
+    $("#error-message").slideUp("slow");
+  }, 3000)
+}else{
 $
  .ajax({
    url:"/tweets",
@@ -67,8 +80,10 @@ $
    data:$('form').serialize()
  }).then(()=>{
   $("#tweets-container").empty();
+  $("#error-message").hide("slow");
 loadTweets();
  });
+}
 });
 
 const loadTweets = () =>{
@@ -76,13 +91,14 @@ const loadTweets = () =>{
    .ajax("/tweets",{method: 'GET',dataType: "json"})
    .then(function(res){
     //  console.log(res);
-      renderTweets(res)});
+      renderTweets(res)
+    });
 }
-
-// const addLatestTweet = (tweets)=>{
-//   const latestTweet = Object.values(tweets).pop();
-//   createTweetElement(latestTweet);
-// }
-
+loadTweets();
 });
 
+
+
+
+
+ 
