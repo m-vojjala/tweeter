@@ -49,10 +49,7 @@ $(document).ready(function () {
     $("#tweet-text").val('');
     $(".counter").val(140);
   }
-  // const resetCounter = function(){
-  //   $(".counter")
-  // }
-
+ 
   // function to make "write a tweet" button work when clicked
   $('.tweet-button').on('click', event => {
     event.preventDefault();
