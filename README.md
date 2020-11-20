@@ -1,6 +1,6 @@
 # Tweeter App
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone that uses AJAX
 
 
 ## Getting Started
