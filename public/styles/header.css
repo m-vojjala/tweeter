@@ -12,8 +12,8 @@ header.top-header{
 .tweet-button{
   color: #E6E6FA;
 }
-div h2{
-  color: #E6E6FA;
+.name h2{
+  color:  #FFD700;
 }
 .image{
   margin-top: 2em;
