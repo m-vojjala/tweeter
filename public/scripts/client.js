@@ -15,8 +15,11 @@ $(document).ready(function () {
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
     }
-    const unixTimestamp = Date(SingleTweet.created_at);
-    const milliseconds = unixTimestamp.toString();
+  const dateCreated = new Date(SingleTweet.created_at);
+  const todayDate = new Date();
+  const differenceTime = Math.abs(dateCreated.getTime()- todayDate.getTime());
+  const days = Math.floor(differenceTime/(1000*3600*24));
+  
     const $tweet =
       $(`<article class="tweet">
     <header>
@@ -28,7 +31,7 @@ $(document).ready(function () {
     </header>
     <p>${escape(SingleTweet.content.text)}</p>
     <footer>
-    <span><strong>${milliseconds}</strong></span>
+    <span><strong>${days} days ago</strong></span>
     <div>
       <i class="fas blue fa-flag"></i>
       <i class="fas blue fa-sync"></i>
